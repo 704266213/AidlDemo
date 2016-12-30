@@ -23,8 +23,7 @@
         <service
             android:name=".server.TelephoneCallService"
             android:enabled="true"
-            android:exported="true"
-            android:process=":telephone" />
+            android:exported="true" />
 
         <receiver
             android:name=".broadcast.StartTelephoneCallServiceReceiver"

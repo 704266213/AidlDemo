@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ServiceConnection {
 
     private EditText editText;
@@ -76,9 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sync:
                 if (telephoneCallAidlServiceInterface != null) {
                     try {
-                        String str = telephoneCallAidlServiceInterface.telephoneCall();
-                        Log.e("XLog", "=========data===============" + str);
-                        serviceData.setText(str);
+                        String clientData = editText.getText().toString();
+                        if (clientData != null) {
+                            List<PhoneBook> phoneBooks = telephoneCallAidlServiceInterface.telephoneCall(clientData);
+                            for (PhoneBook phoneBook : phoneBooks) {
+                                Log.e("XLog", "=========Name===============" + phoneBook.getName());
+                                Log.e("XLog", "=========Phone===============" + phoneBook.getPhone());
+                            }
+                        }
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
