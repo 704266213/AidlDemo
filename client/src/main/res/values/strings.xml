@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AidlClient</string>
+    <string name="start">发送广播启动服务</string>
+    <string name="bind">绑定外部服务</string>
+    <string name="unbind">解绑外部服务</string>
+    <string name="clientData">这是客户端数据数据</string>
+    <string name="getServiceData">获取服务器端数据</string>
+</resources>
